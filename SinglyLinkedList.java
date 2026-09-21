@@ -101,8 +101,21 @@ public class SinglyLinkedList<E extends Comparable<E>> {
 
     // write your codes here
     public void swap(){
-        
+        if (isEmpty()) {
+            return;
+        }
 
+        Node<E> prev = null;
+        Node<E> current = head;
+        tail = head;
+
+        while (current != null) {
+            Node<E> next = current.getNext();
+            current.setNext(prev);
+            prev = current;
+            current = next;
+        }
+        head = prev;
     }
    
 }
